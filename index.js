@@ -64,5 +64,21 @@ module.exports = {
      */
     getTimeStampFromCurrentDateFormat(date, currentFormat) {
         return (new Date(moment(date, currentFormat).format("YYYY-MM-DD HH:mm:ss")).getTime());
-    }
+    },
+        /**
+ * Get the start and end of the week based on the input date
+ * Pass the date and the format you need for the result
+ * @param date (Input date)
+ * @param format (Desired output format, e.g., 'YYYY-MM-DD')
+ * @returns {{startOfWeek: string, endOfWeek: string}} (Object containing start and end of the week)
+ */
+   getStartAndEndOfWeek(date, format) {
+    const startOfWeek = moment(date).startOf('week').format(format); 
+    const endOfWeek = moment(date).endOf('week').format(format);
+
+    return {
+        startOfWeek,
+        endOfWeek
+    };
+}
 };
