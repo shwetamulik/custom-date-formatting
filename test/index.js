@@ -29,3 +29,11 @@ describe('#timeStampFromCurrentDateFormat', function () {
         timeStampFromCurrentDateFormat(moment().format("DD MMM YYYY"), "DD MMM YYYY").should.equal(Date.parse(moment().format("DD MMM YYYY")));
     });
 });
+describe('#getStartAndEndOfWeek', function () {
+    it('returns start and end of the week for a given date', function () {
+        const result = customDateFormatting.getStartAndEndOfWeek("2024-09-10", "YYYY-MM-DD");
+        result.startOfWeek.should.equal(moment("2024-09-10").startOf('week').format("YYYY-MM-DD"));
+        result.endOfWeek.should.equal(moment("2024-09-10").endOf('week').format("YYYY-MM-DD"));
+    });
+});
+
